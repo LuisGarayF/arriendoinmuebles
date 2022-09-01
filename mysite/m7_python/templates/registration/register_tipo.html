@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{% load static %}
+{% block 'content' %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="h-100 py-5 text-white barra text-center" style="font-size: 1.25rem; background-color: #CCCCCC; color: #fff;">
+                <h1 class="text-center titulo barra"> Registro de usuario </h1>
+            </div>
+            {% load crispy_forms_tags %}
+            <div class="form-signin w-100 m-auto col-12 col-md-6 offset-0 offset-md-3">
+                <form method="POST" class="my-5">
+                    {% csrf_token %}
+                    {{form|crispy}}    
+                    <input type="submit" value="Registrar" class="btn botones mt-4 px-5" style="font-size: 1.25rem; background-color: #cccccc; color: #fff; border: none !important; width:200px;">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

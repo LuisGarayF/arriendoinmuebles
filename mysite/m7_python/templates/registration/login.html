@@ -1,0 +1,51 @@
+{%extends 'base.html'%}
+{% load static %}
+{% block 'content' %}
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="h-100 py-5 text-white  bg-dark text-center" style="font-size: 1.25rem;">
+                <h1 class="text-center titulo barra"> Iniciar sesión </h1>
+            </div>
+            {% load crispy_forms_tags %}
+            <div class="form-signin w-100 m-auto col-12 col-md-6 offset-0 offset-md-3">
+                <form method="post" action="{% url 'login_url' %}" class="my-5">
+                    {% csrf_token %}
+                    
+                    {% if form.errors %}
+                    <p class="error text-danger text-center">Su usuario o contraseña no son correctos. Por favor intente nuevamente.</p>
+                    {% endif %}
+
+                    {% if next %}
+                        {% if user.is_authenticated %}
+                        <p>Ingresando.</p>
+                        {% else %}
+                        <p class="text-danger text-center">Su cuenta no tiene acceso a esta página. Para acceder, por favor ingrese con una cuenta que tenga los privilegios.</p>
+                        {% endif %}
+                    {% endif %}
+                
+                    <div class="my-3 text-center">
+                        <label for="{{ form.user_name.id_for_label }}" class="form-label my-2">
+                            <!--{{ form.username.label_tag }}-->
+                            Nombre de usuario:
+                        </label>
+                        <div>
+                            {{ form.username }}
+                        </div>
+                        <label for="{{ form.password.id_for_label }}" class="form-label my-2">
+                            <!--{{ form.password.label_tag }}-->
+                            Contraseña:
+                        </label>
+                        <div>
+                            {{ form.password }}
+                        </div>
+                        <div class="checkbox mt-3">
+                            <label>
+                            <input type="checkbox" value="remember-me"> Recordar
+                            </label>
+                        </div>
+                        <input type="submit" value="Iniciar sesión" class="btn botones mt-4 px-5" style="font-size: 1.25rem; background-color: #cccccc; color: #fff; border: none !important; width:200px;">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

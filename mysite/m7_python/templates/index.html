@@ -1,0 +1,51 @@
+{%extends 'base.html'%}
+{% block 'content' %}
+{% load static %}
+    <div class="container-fluid">
+        <div class="row text-center bg-dark text-white mb-4">
+            <div class="col mb-4">
+                <h1>Bienvenido </h1>        
+            </div>
+        </div>
+    </div>
+    {%if user.is_authenticated %}
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <a href="{% url 'logout_url' %} class="btn btn-dark""> Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="container">    
+            <div class="row">
+                <div class="col p-4 text-center">
+                    <a href="{% url 'login_url' %}" class="btn btn-dark mx-1"> Iniciar Sesión</a>
+                    <a href="{% url 'register_url' %}"class="btn btn-info mx-1"> Registrarse</a>
+                </div>
+            </div>
+            <div class="row">
+                {% for prop in inmuebles %}
+                    <div class ="col p-2">
+                        <div class="card m-2 p-1 w-100 h-100" style="width: 18rem;">
+                            <img src="{% static 'img/propiedad_default.jpg' %}" class="card-img-top-fluid h-35" alt="{{prop.nombre_inmueble}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{prop.nombre_inmueble}}</h5>
+                                    <p class="card-text">{{prop.descripcion}}</p>
+                                </div>
+                                <div class="card-body text-center">
+                                    <ul class="list-group list-group-flush">
+                                        <hr>
+                                        <li class="list-group-item-fluid" style="list-style:none;">{{prop.direccion}}</li>
+                                    </ul>
+                                </div>
+                                <div class="card-body text-center">
+                                    <a href="#" class="btn btn-primary m-3 text-center">Ver Propiedad</a>
+                                </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>    
+    {% endif %}
+{% endblock %}

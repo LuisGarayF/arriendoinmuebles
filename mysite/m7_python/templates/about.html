@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{% block 'content' %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col mb-4">
+            <div class="h-100 p-5 text-white barra text-center">
+                <h1 class="text-center titulo barra"> Sobre Nosotros </h1>
+            </div>
+        </div>
+        <div class="container py-1">
+            <div class="row">
+                <div class="col text-center">
+                    <p> <strong class="fs-4">OnlyFlans</strong> es una iniciativa que nace en el año 2022 buscando ofrecer postres y pasteles variados y de calidad.</p>
+                    <p> Ofrecemos los mejores postres y pasteles para satisfacer incluso los paladares más exigentes.</p>
+                    <br>
+                    <h4 class="text-center pb-3 display-6">¿Quieres saber más?</h4>
+                    <a href="{% url 'contacto' %}" class="btn mx-auto botones" style="width:200px;"> Contáctanos</a>
+                </div>
+            </div>   
+        </div>
+        <div class="container">
+            <div class="row">
+                
+            </div>
+        </div>    
+        <div class="container py-4 text-center h-auto">
+            <div class="row">
+                <div class="col">
+                    <img src="static/img/flan.jpg" class="img-fluid my-5" alt="imagen-flanes">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

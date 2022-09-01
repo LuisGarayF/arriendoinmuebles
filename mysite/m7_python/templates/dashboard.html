@@ -1,0 +1,66 @@
+{%extends 'base.html'%}
+{% block 'content' %}
+{% load static %}
+    <div class="container-fluid">
+        <div class="row bg-dark text-white text-center py-4">
+            <div class="col">
+                <h1>Bienvenid@, {{ user.get_full_name | capfirst }} </h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">    
+        <div class="row">
+            <div class="col mt-5 mb-2">                
+                <h5>Nombre : {{user.first_name}}</h5>
+                <br>
+                <h5>Apellido : {{user.last_name}}</h5>
+                <br>
+                <h5>Email : {{user.email}}</h5>
+                <br>
+            </div>
+            <div class="col text-center mt-5">
+                <div class="row my-4">
+                    <a href="{% url 'update_profile' %}" class="btn btn-primary" role="button" aria-pressed="true" style="width:40%;">Editar Usuario</a>
+                </div>
+                <div class="row my-4">
+                    <a href="{% url 'new_inmueble_url' %}" class="btn btn-info  text-white" role="button" aria-pressed="true" style="width:40%;">Nuevo Inmueble</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h3 class="py-4 bg-dark text-white text-center"> Lista de propiedades publicadas </h3>
+                </div>
+            </div>
+            <div class="row">
+                {% if utipo ==  1  %}
+                    {% for prop in inmuebles %}
+                    <div class ="col p-2">
+                        <div class="card m-2 p-1 w-100 h-100" style="width: 18rem;">
+                            <img src="{% static 'img/propiedad_default.jpg' %}" class="card-img-top-fluid h-35" alt="{{prop.nombre_inmueble}}">
+                            <div class="card-body">
+                                <h1 class="card-title">{{prop.nombre_inmueble}}</h1>
+                                <p class="card-text">{{prop.descripcion}}</p>
+                            </div>
+                            <div class="card-body text-center">
+                                <ul class="list-group list-group-flush">
+                                    <hr>
+                                    <li class="list-group-item-fluid" style="list-style:none;">{{prop.direccion}}</li>
+                                </ul>
+                            </div>
+                            <div class="card-body text-center">
+                                <a href="/update_inmueble?id_inmueble={{ prop.id }}" class="btn btn-outline-primary" role="button" aria-pressed="true"><span class="material-symbols-outlined">edit</span></a>
+                                <a href="/eliminar_inmueble?id_inmueble={{ prop.id }} " role="button" class="btn btn-outline-danger" aria-pressed="true"><span class="material-symbols-outlined">delete</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>    
+            <div class="row mt-5 text-center">
+                <div class="col">
+                    <a href="{% url 'logout_url' %}" class="btn btn-danger" role="button" aria-pressed="true" style="width:40%;">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

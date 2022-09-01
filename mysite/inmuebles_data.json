@@ -1,0 +1,39 @@
+[
+    {
+        "model": "m7_python.inmueble",
+        "pk": 1,
+        "fields": {
+            "nombre_inmueble":"Casa en Arriendo San Bernardo / Nexxos",
+            "descripcion": "Casa en arriendo de 3 dorm. en San Bernardo Se arrienda casa $ 650.000",
+            "m2_construidos": 70,
+            "m2_terreno": 90,
+            "numero_estacionamientos": 1,
+            "numero_banios": 3,
+            "numero_habitaciones":3,
+            "direccion": "Los Reclutas 123",
+            "id_comuna_id": 333,
+            "id_region_id": 16,
+            "id_tipo_inmueble_id": 1,
+            "id_user_id": 1
+        }
+    },
+    {
+        "model": "m7_python.inmueble",
+        "pk": 2,
+        "fields": {
+            "nombre_inmueble":"Departamento en Arriendo en Providencia 2 dormitorios 2 baños / Inmobiliaria Focus E.I.R.L",
+            "descripcion": "Living-comedor - Cocina americana - 2 Dormitorios (Principal en suite y ventanas termopanel) - 2 Baños - $680.000",
+            "m2_construidos": 52,
+            "m2_terreno": 54,
+            "numero_estacionamientos": 1,
+            "numero_banios": 2,
+            "numero_habitaciones":3,
+            "direccion": "Padre Mariano 356",
+            "id_comuna_id": 316,
+            "id_region_id": 16,
+            "id_tipo_inmueble_id": 2,
+            "id_user_id": 1
+        }
+    }
+]
+    
